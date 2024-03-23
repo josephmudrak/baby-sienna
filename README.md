@@ -1,4 +1,4 @@
-# Sienna – Your Dynamic AI Voice Companion
+# Sienna – Your Dynamic AI Voice Companion (baby version)
 
 This repository contains the source code for Sienna. It can run locally on the
 user’s machine.
