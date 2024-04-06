@@ -131,19 +131,10 @@ def process_transcription():
                 nonlocal current_response
                 current_response += delta.content
                 socketio.emit("message", delta.content, namespace="/stream")
-                yield delta.content
 
-    generator = text_iterator()
-    elevenlabs.stream(
-        elevenlabs.generate(
-            text=generator,
-            voice=VOICE_ID,
-            model="eleven_turbo_v2",
-            stream=True,
-            api_key=os.getenv("ELEVENLABS_API_KEY"),
-            latency=3,
-        )
-    )
+    # Stream text directly for now
+    text_iterator()
+
     messages.append({"role": "assistant", "content": current_response})
 
     add_conversation(messages, conversation_csv)
